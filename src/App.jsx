@@ -1,9 +1,11 @@
 import './App.css'
-
+import CourseListCard from './components/course/CourseListCard'
 function App() {
   return (
     <>
-      <img src='/img/htmlcss.png' />
+      <main>
+        <CourseListCard />
+      </main>
     </>
   )
 }

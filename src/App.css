@@ -1,0 +1,82 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+body {
+  color: #282828;
+}
+
+main {
+  height: 100vh;
+  background-color: #DAECFD;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Card */
+.card {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  width: 500px;
+}
+.card__header {
+  font-size: 1.5rem;
+  font-weight: 600;
+  width: 460px;
+}
+.card__body {
+  padding-top: 1.5rem;
+}
+
+/* Course List */
+.courses {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+/* Course */
+.course {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.course__img {
+  border-radius: 6px;
+  width: 120px;
+}
+
+.course__title {
+  font-weight: 500;
+}
+.course__body {
+  flex-grow: 1;
+}
+.course__description {
+  color: #777777;
+  font-weight: 300;
+  margin-top: .4rem;
+}
+.course__icons {
+  display: flex;
+  align-items: center;
+  column-gap: 0.6rem;
+}
+
+/* Button */
+.btn {
+  background: none;
+  border: none; /* Remove borders */
+  font-size: 20px; /* Set a font size */
+  cursor: pointer; /* Mouse pointer on hover */
+}
+
+.btn > .fa-heart {
+  color: red;
+}
+.btn > .fa-link {
+  color: #393939;
+}
