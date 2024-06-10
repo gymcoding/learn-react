@@ -1,4 +1,3 @@
-import React from 'react';
 import CourseItem from './CourseItem'
 
 function CourseListCard(props) {
