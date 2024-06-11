@@ -1,17 +1,18 @@
 function HeartIconBtn({ isFavorite = false }) {
   return (
     <button className="btn">
-      {/* {isFavorite ? (
-        <img className="icon-heart" src="/img/heart-fill-icon.svg" />
-      ) : (
-        <img className="icon-heart" src="/img/heart-icon.svg" />
-      )} */}
       <img className="icon-heart" src={isFavorite ? '/img/heart-fill-icon.svg' : '/img/heart-icon.svg'} />
     </button>
   )
 }
 
-export default function CourseItem({ title, description, thumbnail, isFavorite }) {
+function LinkIconBtn({ link }) {
+  return <a className="btn" href={link} target="_blank" rel="noreferrer">
+    <img className="icon-heart" src="/img/link-icon.svg" />
+  </a>
+}
+
+export default function CourseItem({ title, description, thumbnail, isFavorite, link }) {
   return (
     <article className="course">
       <img className="course__img" src={thumbnail} alt="강의 이미지" />
@@ -21,6 +22,7 @@ export default function CourseItem({ title, description, thumbnail, isFavorite }
       </div>
       <div className="course__icons">
         <HeartIconBtn isFavorite={isFavorite} />
+        {link && <LinkIconBtn link={link} />}
       </div>
     </article>
   );
