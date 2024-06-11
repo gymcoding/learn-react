@@ -1,15 +1,17 @@
 function HeartIconBtn({ isFavorite = false }) {
   return (
     <button className="btn">
-      <img className="icon-heart" src={isFavorite ? '/img/heart-fill-icon.svg' : '/img/heart-icon.svg'} />
+      <img className="btn__img" src={isFavorite ? '/img/heart-fill-icon.svg' : '/img/heart-icon.svg'} />
     </button>
   )
 }
 
 function LinkIconBtn({ link }) {
-  return <a className="btn" href={link} target="_blank" rel="noreferrer">
-    <img className="icon-heart" src="/img/link-icon.svg" />
-  </a>
+  return (
+    <a className="btn" href={link} target="_blank" rel="noreferrer">
+      <img className="btn__img" src="/img/link-icon.svg" />
+    </a>
+  )
 }
 
 export default function CourseItem({ title, description, thumbnail, isFavorite, link }) {
