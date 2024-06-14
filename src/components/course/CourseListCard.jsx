@@ -6,7 +6,7 @@ function CourseListCard({ title, items }) {
   return (
     <Card title={title}>
       <div className='courses'>
-        {items.map(item => <CourseItem {...item} />)}
+        {items.map(item => <CourseItem key={item.id} {...item} />)}
       </div>
     </Card>
   );
