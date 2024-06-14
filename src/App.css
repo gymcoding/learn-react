@@ -35,7 +35,6 @@ main {
 .courses {
   display: flex;
   flex-direction: column;
-  gap: 1.6rem;
 }
 
 /* Course */
@@ -82,4 +81,11 @@ main {
 }
 .btn__img {
   width: 20px;
+}
+
+.divider {
+  border: none; /* 기본 테두리 제거 */
+  height: 1px; /* 선의 높이 */
+  background-color: #e2e2e2; /* 선의 색상 */
+  margin: 16px 0; /* 위아래 여백 설정 */
 }
