@@ -20,13 +20,11 @@ export default function CourseItem({ title, description, thumbnail, isFavorite, 
     e.stopPropagation();
     alert(isFavorite ? '좋아요' : '모르겠어요.');
   }
-  function handleItemClick(e) {
-    e.stopPropagation();
-    alert('item click~!');
+  function handleItemClick() {
     open(link, '_blank');
   }
   return (
-    <article className="course" onClickCapture={handleItemClick}>
+    <article className="course" onClick={handleItemClick}>
       <img className="course__img" src={thumbnail} alt="강의 이미지" />
       <div className="course__body">
         <div className="course__title">{title}</div>
