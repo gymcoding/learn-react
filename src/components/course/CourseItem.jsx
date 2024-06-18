@@ -1,6 +1,11 @@
 function HeartIconBtn({ isFavorite = false }) {
+
+  function handleFavorite() {
+    alert(isFavorite ? '좋아요' : '모르겠어요.');
+  }
+
   return (
-    <button className="btn">
+    <button className="btn" onClick={handleFavorite}>
       <img className="btn__img" src={isFavorite ? '/img/heart-fill-icon.svg' : '/img/heart-icon.svg'} />
     </button>
   )
