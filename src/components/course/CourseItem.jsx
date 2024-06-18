@@ -1,7 +1,7 @@
 function HeartIconBtn({ onClick, isFavorite = false }) {
-  
+
   return (
-    <button className="btn" onClick={onClick}>
+    <button className="btn" onClick={() => onClick(isFavorite)}>
       <img className="btn__img" src={isFavorite ? '/img/heart-fill-icon.svg' : '/img/heart-icon.svg'} />
     </button>
   )
