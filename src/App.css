@@ -42,6 +42,7 @@ main {
   display: flex;
   align-items: center;
   gap: 1rem;
+  cursor: pointer;
 }
 .course__img {
   border-radius: 6px;
