@@ -4,9 +4,13 @@ import { useState } from "react"
 export default function Counter({ onTotal }) {
   const [counter, setCounter] = useState(0);
 
+  console.log('Counter')
+
   const handleCounter = () => {
     setCounter(counter + 1);
-    onTotal();
+    if (onTotal) {
+      onTotal();
+    }
   }
   // 상태, 로직
   return (
