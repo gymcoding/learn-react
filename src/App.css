@@ -1,119 +1,112 @@
-* {
-  padding: 0;
-  margin: 0;
-}
-body {
-  color: #282828;
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-main {
-  height: 100vh;
-  background-color: #DAECFD;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* Card */
-.card {
-  background-color: white;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-  width: 500px;
-}
-.card__header {
-  font-size: 1.5rem;
-  font-weight: 600;
-  width: 460px;
-}
-.card__body {
-  padding-top: 1.5rem;
-}
-
-/* Course List */
-.courses {
-  display: flex;
-  flex-direction: column;
-}
-
-/* Course */
-.course {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  cursor: pointer;
-}
-.course__img {
-  border-radius: 6px;
-  width: 120px;
-}
-
-.course__title {
+a {
   font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
 }
-.course__body {
-  flex-grow: 1;
+a:hover {
+  color: #535bf2;
 }
-.course__description {
-  color: #777777;
-  font-weight: 300;
-  margin-top: .4rem;
-}
-.course__icons {
+
+body {
+  margin: 0;
   display: flex;
-  align-items: center;
-  column-gap: 0.6rem;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
 }
 
-/* Button */
-.btn {
-  background: none;
-  border: none; /* Remove borders */
-  font-size: 20px; /* Set a font size */
-  cursor: pointer; /* Mouse pointer on hover */
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
 }
 
-.btn > .fa-heart {
-  color: red;
-}
-.btn > .fa-link {
-  color: #393939;
-}
-.btn__img {
-  width: 20px;
-}
-
-.divider {
-  border: none; /* 기본 테두리 제거 */
-  height: 1px; /* 선의 높이 */
-  background-color: #e2e2e2; /* 선의 색상 */
-  margin: 16px 0; /* 위아래 여백 설정 */
-}
-
-
-/* input */
-input[type=text], select {
-  width: 100%;
-  padding: 12px 20px;
-  /* margin: 8px 0; */
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
-
-input[type=submit] {
-  width: 100%;
-  background-color: #4CAF50;
-  color: white;
-  padding: 14px 20px;
-  /* margin: 8px 0; */
-  border: none;
-  border-radius: 4px;
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
   cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
 }
 
-input[type=submit]:hover {
-  background-color: #45a049;
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
 }

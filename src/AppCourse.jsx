@@ -1,4 +1,4 @@
-import './App.css'
+import './AppCourse.css'
 import CourseForm from './components/course/CourseForm';
 import CourseListCard from './components/course/CourseListCard'
 function App() {
