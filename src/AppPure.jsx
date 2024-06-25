@@ -1,12 +1,12 @@
 import './App.css'
 
-import PullUpImpure from './components/PullUpImpure';
+import PullUpPure from './components/PullUpPure';
 function AppPure(props) {
   return (
     <div>
-      <PullUpImpure />
-      <PullUpImpure />
-      <PullUpImpure />
+      <PullUpPure counter={11} />
+      <PullUpPure counter={12} />
+      <PullUpPure counter={13} />
     </div>
   );
 }
