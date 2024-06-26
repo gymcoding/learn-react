@@ -6,9 +6,9 @@ export default function Counter({ onTotal }) {
   console.log('[렌더링] Counter: ', counter);
 
   const handleCounter = () => {
-    setCounter(counter + 1);
-    setCounter(counter + 1);
-    setCounter(counter + 1);
+    setCounter((prevCounter) => prevCounter + 1); // 0 + 1
+    setCounter((prevCounter) => prevCounter + 1); // 1 + 1
+    setCounter((prevCounter) => prevCounter + 1); // 2 + 1
     console.log('[함수호출] Counter: ', counter);
 
     if (onTotal) {
