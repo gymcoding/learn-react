@@ -8,10 +8,10 @@ export default function AppMovingDot() {
   return (
     <div
       onPointerMove={e => {
-        console.log('clientX: ', e.clientX);
-        console.log('clientY: ', e.clientY);
-        position.x = e.clientX;
-        position.y = e.clientY;
+        setPosition({
+          x: e.clientX,
+          y: e.clientY
+        });
       }}
       style={{
         position: 'relative',
