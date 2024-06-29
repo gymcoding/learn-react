@@ -19,14 +19,26 @@ function AppTodo(props) {
     ]);
     setTodoText(''); // null, undefined [X]
   }
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      handleAddTodo();
+    }
+  }
   const handleDeleteTodo = (deleteId) => {
     const newTodos = todos.filter(item => item.id !== deleteId)
     setTodos(newTodos);
   }
+  
   return (
     <div>
       <h2>할일목록</h2>
-      <input type="text" value={todoText} onChange={handleTodoTextChange} /> <button onClick={handleAddTodo}>추가</button>
+      <input
+        type="text"
+        value={todoText}
+        onChange={handleTodoTextChange}
+        onKeyDown={handleKeyDown}
+      />
+      <button onClick={handleAddTodo}>추가</button>
       <div>Preview: {todoText}</div>
       <TodoList
         todos={todos}
