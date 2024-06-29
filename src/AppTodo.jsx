@@ -17,11 +17,12 @@ function AppTodo(props) {
       ...todos,
       { id: nextId, text: todoText }
     ]);
+    setTodoText(''); // null, undefined [X]
   }
   return (
     <div>
       <h2>할일목록</h2>
-      <input type="text" onChange={handleTodoTextChange} /> <button onClick={handleAddTodo}>추가</button>
+      <input type="text" value={todoText} onChange={handleTodoTextChange} /> <button onClick={handleAddTodo}>추가</button>
       <div>Preview: {todoText}</div>
       <TodoList todos={todos} />
     </div>
