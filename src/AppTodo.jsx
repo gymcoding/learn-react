@@ -12,7 +12,7 @@ function AppTodo(props) {
     setTodoText(e.target.value);
   }
   const handleAddTodo = (e) => {
-    const nextId = todos.length();
+    const nextId = todos.length;
     todos.push({ id: nextId, label: todoText });
   }
   return (
