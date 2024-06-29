@@ -4,8 +4,8 @@ import TodoList from './components/todo/TodoList';
 function AppTodo(props) {
   const [todoText, setTodoText] = useState('');
   const [todos, setTodos] = useState([
-    {id: 0, label: "HTML&CSS 공부하기" },
-    {id: 1, label: "자바스크립트 공부하기" },
+    {id: 0, text: "HTML&CSS 공부하기" },
+    {id: 1, text: "자바스크립트 공부하기" },
   ]);
 
   const handleTodoTextChange = (e) => {
@@ -13,7 +13,10 @@ function AppTodo(props) {
   }
   const handleAddTodo = (e) => {
     const nextId = todos.length;
-    todos.push({ id: nextId, label: todoText });
+    setTodos([
+      ...todos,
+      { id: nextId, text: todoText }
+    ]);
   }
   return (
     <div>
