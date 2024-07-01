@@ -2,14 +2,12 @@ import { useState } from 'react';
 import './App.css'
 import TodoList from './components/todo/TodoList';
 
-const initialList = [
-  {id: 0, text: "HTML&CSS 공부하기", done: false },
-  {id: 1, text: "자바스크립트 공부하기", done: false },
-];
 function AppTodo(props) {
   const [todoText, setTodoText] = useState('');
-  const [todos, setTodos] = useState(initialList);
-  const [copyTodos, setCopyTodos] = useState(initialList);
+  const [todos, setTodos] = useState([
+    {id: 0, text: "HTML&CSS 공부하기", done: false },
+    {id: 1, text: "자바스크립트 공부하기", done: false },
+  ]);
 
   const handleTodoTextChange = (e) => {
     setTodoText(e.target.value);
@@ -42,12 +40,12 @@ function AppTodo(props) {
     setTodos(nextTodos);
   }
 
-  const handleToggleCopyTodo = (id, done) => {
-    const nextTodos = [...copyTodos];
-    const targetItem = nextTodos.find(item => item.id === id);
-    targetItem.done = done;
-    setCopyTodos(nextTodos);
-  }
+  // const handleToggleCopyTodo = (id, done) => {
+  //   const nextTodos = [...copyTodos];
+  //   const targetItem = nextTodos.find(item => item.id === id);
+  //   targetItem.done = done;
+  //   setCopyTodos(nextTodos);
+  // }
   
   return (
     <div>
@@ -65,13 +63,6 @@ function AppTodo(props) {
         todos={todos}
         onDeleteTodo={handleDeleteTodo}
         onToggleTodo={handleToggleTodo}
-      />
-
-      <h2>할일목록</h2>
-      <TodoList
-        todos={copyTodos}
-        onDeleteTodo={handleDeleteTodo}
-        onToggleTodo={handleToggleCopyTodo}
       />
     </div>
   );
