@@ -75,8 +75,8 @@ function AppTodo(props) {
       </div>
       <div>
         <select value={insertAt} onChange={(e) => setInsertAt(e.target.value)}>
-          {todos.map((_, index) => (
-            <option value={index}>{index} 번째</option>
+          {todos.map((item, index) => (
+            <option key={item.id} value={index}>{index} 번째</option>
           ))}
         </select>
         <button onClick={handleAddTodoByIndex}>{insertAt} 번째 추가</button>
