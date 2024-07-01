@@ -4,8 +4,8 @@ import TodoList from './components/todo/TodoList';
 function AppTodo(props) {
   const [todoText, setTodoText] = useState('');
   const [todos, setTodos] = useState([
-    {id: 0, text: "HTML&CSS 공부하기" },
-    {id: 1, text: "자바스크립트 공부하기" },
+    {id: 0, text: "HTML&CSS 공부하기", done: false },
+    {id: 1, text: "자바스크립트 공부하기", done: false },
   ]);
 
   const handleTodoTextChange = (e) => {
@@ -15,7 +15,7 @@ function AppTodo(props) {
     const nextId = todos.length;
     setTodos([
       ...todos,
-      { id: nextId, text: todoText }
+      { id: nextId, text: todoText, done: false }
     ]);
     setTodoText(''); // null, undefined [X]
   }
@@ -27,6 +27,16 @@ function AppTodo(props) {
   const handleDeleteTodo = (deleteId) => {
     const newTodos = todos.filter(item => item.id !== deleteId)
     setTodos(newTodos);
+  }
+
+  const handleDoneTodo = (id, done) => {
+    const nextTodos = todos.map(item => {
+      if (item.id === id) {
+        return { ...item, done };
+      }
+      return item;
+    })
+    setTodos(nextTodos);
   }
   
   return (
@@ -43,6 +53,7 @@ function AppTodo(props) {
       <TodoList
         todos={todos}
         onDeleteTodo={handleDeleteTodo}
+        onDoneTodo={handleDoneTodo}
       />
     </div>
   );
