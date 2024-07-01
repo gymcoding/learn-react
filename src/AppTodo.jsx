@@ -50,13 +50,23 @@ function AppTodo(props) {
   return (
     <div>
       <h2>할일목록</h2>
-      <input
-        type="text"
-        value={todoText}
-        onChange={handleTodoTextChange}
-        onKeyDown={handleKeyDown}
-      />
-      <button onClick={handleAddTodo}>추가</button>
+      <div>
+        <input
+          type="text"
+          value={todoText}
+          onChange={handleTodoTextChange}
+          onKeyDown={handleKeyDown}
+        />
+        <button onClick={handleAddTodo}>추가</button>
+      </div>
+      <div>
+        <select>
+          {todos.map((_, index) => (
+            <option value={index}>{index} 번째</option>
+          ))}
+        </select>
+        <button>0 번째 추가</button>
+      </div>
       <div>Preview: {todoText}</div>
 
       <TodoList
