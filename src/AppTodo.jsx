@@ -54,6 +54,13 @@ function AppTodo(props) {
     setTodos(nextTodos);
   }
 
+  const handleReverse = () => {
+    // const nextTodos = [...todos];
+    // nextTodos.reverse();
+    // setTodos(nextTodos);
+    setTodos(todos.toReversed())
+  }
+
   // const handleToggleCopyTodo = (id, done) => {
   //   const nextTodos = [...copyTodos];
   //   const targetItem = nextTodos.find(item => item.id === id);
@@ -82,7 +89,7 @@ function AppTodo(props) {
         <button onClick={handleAddTodoByIndex}>{insertAt} 번째 추가</button>
       </div>
       <div>Preview: {todoText}</div>
-
+      <button onClick={handleReverse}>Reverse</button>
       <TodoList
         todos={todos}
         onDeleteTodo={handleDeleteTodo}
