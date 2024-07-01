@@ -29,7 +29,7 @@ function AppTodo(props) {
     setTodos(newTodos);
   }
 
-  const handleDoneTodo = (id, done) => {
+  const handleToggleTodo = (id, done) => {
     const nextTodos = todos.map(item => {
       if (item.id === id) {
         return { ...item, done };
@@ -53,7 +53,7 @@ function AppTodo(props) {
       <TodoList
         todos={todos}
         onDeleteTodo={handleDeleteTodo}
-        onDoneTodo={handleDoneTodo}
+        onToggleTodo={handleToggleTodo}
       />
     </div>
   );
