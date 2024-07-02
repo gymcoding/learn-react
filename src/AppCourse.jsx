@@ -1,9 +1,11 @@
 import './AppCourse.css'
 import CourseForm from './components/course/CourseForm';
-import CourseListCard from './components/course/CourseListCard'
+import CourseListCard from './components/course/CourseListCard';
+import { useState } from 'react';
+
 function App() {
 
-  const items = [
+  const [items, setItems] = useState([
     {
       id: 0,
       title: '입문자를 위한, HTML&CSS 웹 개발 입문',
@@ -28,14 +30,27 @@ function App() {
       isFavorite: true,
       link: 'https://inf.run/YkAN'
     }
-  ]
+  ]);
+
+  const handleFavoriteChange = (id, isFavorite) => {
+    const newItems = items.map(item => {
+      if (item.id === id) {
+        return {
+          ...item,
+          isFavorite
+        }
+      }
+      return item
+    });
+    setItems(newItems);
+  }
 
   const favoriteItems = items.filter(item => item.isFavorite);
   return (
     <>
       <main style={{flexDirection: 'column', gap: '1rem'}}>
         <CourseForm />
-        <CourseListCard title="강의 목록" items={items} />
+        <CourseListCard title="강의 목록" items={items} onFavorite={handleFavoriteChange} />
         {/* <CourseListCard title="관심 강의" items={favoriteItems} /> */}
       </main>
     </>
