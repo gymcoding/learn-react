@@ -42,35 +42,18 @@ function AppTodo(props) {
 
   // 3] deleted
   const handleDeleteTodo = (deleteId) => {
-    dispatch({
-      type: 'deleted',
-      insertAt,
-      deleteId
-    })
+    dispatch({ type: 'deleted', deleteId })
   }
 
   // 4] 'done'
   const handleToggleTodo = (id, done) => {
-    dispatch({
-      type: 'done',
-      id,
-      done
-    })
+    dispatch({ type: 'done', id, done })
   }
 
   // 5] 'reverse'
   const handleReverse = () => {
-    dispatch({
-      type: 'reverse'
-    })
+    dispatch({ type: 'reverse' })
   }
-
-  // const handleToggleCopyTodo = (id, done) => {
-  //   const nextTodos = [...copyTodos];
-  //   const targetItem = nextTodos.find(item => item.id === id);
-  //   targetItem.done = done;
-  //   setCopyTodos(nextTodos);
-  // }
   
   return (
     <div>
