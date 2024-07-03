@@ -13,6 +13,7 @@ function AppTodo(props) {
   const handleTodoTextChange = (e) => {
     setTodoText(e.target.value);
   }
+  // 1] added
   const handleAddTodo = (e) => {
     const nextId = todos.length;
     setTodos([
@@ -21,6 +22,8 @@ function AppTodo(props) {
     ]);
     setTodoText(''); // null, undefined [X]
   }
+
+  // 2] added_index
   const handleAddTodoByIndex = () => {
     const nextId = todos.length;
     const newTodos = [
@@ -39,11 +42,14 @@ function AppTodo(props) {
       handleAddTodo();
     }
   }
+
+  // 3] deleted
   const handleDeleteTodo = (deleteId) => {
     const newTodos = todos.filter(item => item.id !== deleteId)
     setTodos(newTodos);
   }
 
+  // 4] 'done'
   const handleToggleTodo = (id, done) => {
     const nextTodos = todos.map(item => {
       if (item.id === id) {
@@ -54,6 +60,7 @@ function AppTodo(props) {
     setTodos(nextTodos);
   }
 
+  // 5] 'reverse'
   const handleReverse = () => {
     // const nextTodos = [...todos];
     // nextTodos.reverse();
