@@ -35,8 +35,8 @@ function AppTodo(props) {
     })
     setName('');
   }
-  const handleKeyDown = (e) => {
-    if (e.key === 'Enter') {
+  const handleAddTodoOnEnter = (e) => {
+    if (e.key === 'Enter' && e.nativeEvent.isComposing === false) {
       handleAddTodo();
     }
   }
@@ -64,7 +64,7 @@ function AppTodo(props) {
           type="text"
           value={todoText}
           onChange={handleTodoTextChange}
-          onKeyDown={handleKeyDown}
+          onKeyDown={handleAddTodoOnEnter}
         />
         <button onClick={handleAddTodo}>추가</button>
       </div>
