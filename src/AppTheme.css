@@ -1,0 +1,95 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+/* Dark Mode */
+.header--light, .card--light, .footer--light {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.header--dark, .card--dark, .footer--dark {
+  background-color: #333333;
+  color: #ffffff;
+}
+
+/* Header CSS */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  transition: background-color 0.3s, color 0.3s;
+  border-bottom: 2px solid #eee;
+  min-height: 64px;
+}
+
+.header__button {
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.header--light .header__button {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.header--dark .header__button {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/* Card */
+.card {
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  width: 500px;
+}
+.card__header {
+  font-size: 1.5rem;
+  font-weight: 600;
+  width: 460px;
+}
+.card__body {
+  padding-top: 1.5rem;
+}
+
+/* Main */
+main {
+  height: calc(100vh - 64px - 120px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Footer */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  transition: background-color 0.3s, color 0.3s;
+  min-height: 120px;
+  border-top: 2px solid #eee;
+}
+
+.footer__button {
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.footer--light .footer__button {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.footer--dark .footer__button {
+  background-color: #ffffff;
+  color: #000000;
+}
