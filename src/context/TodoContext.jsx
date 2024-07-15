@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import { createContext, useContext } from "react";
 import { useImmerReducer } from "use-immer";
 import todoReducer from "../reducer/todo-reducer";
 
@@ -18,4 +18,12 @@ export function TodoProvider({ children }) {
       </TodoDispatchContext.Provider>
     </TodoContext.Provider>
   );
+}
+
+export function useTodos() {
+  return useContext(TodoContext);
+}
+
+export function useTodosDispatch() {
+  return useContext(TodoDispatchContext);
 }

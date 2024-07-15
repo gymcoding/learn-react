@@ -1,9 +1,8 @@
-import { useContext } from "react"
-import { TodoDispatchContext } from "../../context/TodoContext"
+import { useTodosDispatch } from "../../context/TodoContext"
 
 export default function TodoItem({ item }) {
 
-  const dispatch = useContext(TodoDispatchContext);
+  const dispatch = useTodosDispatch();
 
   // 3] deleted
   const handleDeleteTodo = (deleteId) => {

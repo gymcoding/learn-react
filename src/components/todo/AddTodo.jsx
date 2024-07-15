@@ -1,11 +1,11 @@
-import { useContext, useState } from "react";
-import { TodoContext, TodoDispatchContext } from "../../context/TodoContext";
+import { useState } from "react";
+import { useTodos, useTodosDispatch } from "../../context/TodoContext";
 
 export default function AddTodo() {
   const [todoText, setTodoText] = useState('');
 
-  const todos = useContext(TodoContext);
-  const dispatch = useContext(TodoDispatchContext);
+  const todos = useTodos();
+  const dispatch = useTodosDispatch();
 
   // 1] added
   const handleAddTodo = (text) => {
