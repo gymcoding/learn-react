@@ -1,16 +1,8 @@
 import { useEffect, useState } from "react";
 
-export default function AppEffect(props) {
-
-  // 1] DOM 조작하기
-  // useEffect(() => {
-  //   const $h2 = document.querySelector('#title');
-  //   $h2.textContent = 'Data Fetching';
-  // }, []);
-
+function Courses () {
   const [list, setList] = useState([]);
   const [filter, setFilter] = useState('all');
-
   useEffect(() => {
     fetch(`data/courses_${filter}.json`)
     .then((res) => res.json())
@@ -18,11 +10,12 @@ export default function AppEffect(props) {
       console.log('✅ 데이터 조회 성공 ')
       setList(data);
     })
+    return () => {
+      console.log('❎ 연결 해제~!')
+    }
   }, [filter]);
-
   return (
     <>
-      <h2 id="title">데이터 가져오기</h2>
       <label htmlFor="all">전체</label>
       <input
         id="all"
@@ -44,6 +37,26 @@ export default function AppEffect(props) {
           <li key={item.id}>{item.title}</li>
         ))}
       </ul>
+    </>
+  )
+}
+
+
+export default function AppEffect(props) {
+
+  // 1] DOM 조작하기
+  // useEffect(() => {
+  //   const $h2 = document.querySelector('#title');
+  //   $h2.textContent = 'Data Fetching';
+  // }, []);
+
+  const [show, setShow] = useState(true);
+  return (
+    <>
+      <h2 id="title">데이터 가져오기</h2>
+      <button onClick={() => setShow(!show)}>toggle</button>
+      <hr />
+      {show && <Courses />}
     </>
   );
 };
