@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react"
+import { forwardRef, useEffect, useRef, useState } from "react"
 
 // let counter = 0;
 
@@ -21,7 +21,7 @@ function ButtonCounter() {
   )
 }
 
-function Form() {
+const MyForm = forwardRef((props, ref) => {
   const [form, setForm] = useState({
     title: '제목',
     author: '짐코딩',
@@ -76,6 +76,8 @@ function Form() {
   useEffect(() => {
     // server api fetch
     prevForm.current = { ...form };
+
+    console.log('formRef: ', formRef)
   }, []);
 
   useEffect(() => {
@@ -89,8 +91,9 @@ function Form() {
     setIsChanged(hasChanged);
   }, [form])
 
+  const formRef = useRef(null);
   return (
-    <form onSubmit={handleSubmit}>
+    <form ref={ref} onSubmit={handleSubmit}>
       <fieldset>
         <legend>글쓰기</legend>
         <input ref={titleInputRef} name="title" placeholder="제목" value={form.title} onChange={handleForm} />
@@ -103,17 +106,23 @@ function Form() {
       </fieldset>
     </form>
   )
-}
+})
 
 export default function AppRef() {
 
+  const myFormRef = useRef(null);
+
+  useEffect(() => {
+    console.log('myFormRef: ', myFormRef);
+  }, []);
+  
   return (
     <>
       <h2>Count</h2>
       <ButtonCounter />
       <ButtonCounter />
       <h2>Form</h2>
-      <Form />
+      <MyForm ref={myFormRef} />
     </>
   )
 }
