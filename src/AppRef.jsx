@@ -24,7 +24,7 @@ function ButtonCounter() {
 function Form() {
   const [form, setForm] = useState({
     title: '제목',
-    author: '',
+    author: '짐코딩',
     content: ''
   });
 
@@ -70,6 +70,25 @@ function Form() {
     }
   }, []);
 
+  const [isChanged, setIsChanged] = useState(false);
+  const prevForm = useRef(null);
+
+  useEffect(() => {
+    // server api fetch
+    prevForm.current = { ...form };
+  }, []);
+
+  useEffect(() => {
+
+    const hasChanged = (
+      prevForm.current.title !== form.title ||
+      prevForm.current.content !== form.content ||
+      prevForm.current.author !== form.author
+    );
+
+    setIsChanged(hasChanged);
+  }, [form])
+
   return (
     <form onSubmit={handleSubmit}>
       <fieldset>
@@ -80,7 +99,7 @@ function Form() {
         <hr />
         <textarea ref={contentTextareaRef} name="content" placeholder="내용" value={form.content} onChange={handleForm} />
         <hr />
-        <button>전송</button>
+        <button disabled={!isChanged}>전송</button>
       </fieldset>
     </form>
   )
