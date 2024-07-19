@@ -1,4 +1,4 @@
-import { useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 
 // let counter = 0;
 
@@ -24,7 +24,7 @@ function ButtonCounter() {
 function Form() {
   const [form, setForm] = useState({
     title: '제목',
-    author: '짐코딩',
+    author: '',
     content: ''
   });
 
@@ -54,6 +54,21 @@ function Form() {
     }
     console.log('✅ 저장 성공~!')
   }
+
+  useEffect(() => {
+    if (!form.title) {
+      titleInputRef.current.focus();
+      return;
+    }
+    if (!form.author) {
+      authorInputRef.current.focus();
+      return;
+    }
+    if (!form.content) {
+      contentTextareaRef.current.focus();
+      return;
+    }
+  }, []);
 
   return (
     <form onSubmit={handleSubmit}>
