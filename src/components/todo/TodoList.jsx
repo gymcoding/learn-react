@@ -1,6 +1,6 @@
 import TodoItem from "./TodoItem";
 import { useTodos } from "../../context/TodoContext";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 export default function TodoList() {
   const todos = useTodos();
 
@@ -22,7 +22,7 @@ export default function TodoList() {
       doneCount
     }
   }
-  const { totalCount, doneCount } = getStatsCount();
+  const { totalCount, doneCount } = useMemo(() => getStatsCount(), [todos]);
   return (
     <>
       <div>
