@@ -1,8 +1,9 @@
+import { memo } from "react";
 import { useTodosDispatch } from "../../context/TodoContext"
 // import { useEffect } from 'react';
 
-export default function TodoItem({ item }) {
-
+export default memo(function TodoItem({ item }) {
+  console.log('✅ TodoItem 렌더링!')
   // useEffect(() => {
   //   console.log('컴포넌트가 마운트 되었습니다.');
 
@@ -33,4 +34,4 @@ export default function TodoItem({ item }) {
       <button onClick={() => handleDeleteTodo(item.id)}>X</button>
     </label>
   )
-}
+})

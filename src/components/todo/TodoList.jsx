@@ -14,7 +14,6 @@ export default function TodoList() {
   const filteredTodos = getFilteredTodos();
 
   const getStatsCount = () => {
-    console.log('getStatsCount 함수 실행!');
     const totalCount = todos.length;
     const doneCount = todos.filter((todo) => todo.done).length;
     return {
